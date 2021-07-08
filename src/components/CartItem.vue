@@ -5,7 +5,7 @@
     <img
       :src="item.image"
       :alt="item.name"
-      class="h-16 w-16 rounded-full object-cover mr-4"
+      class="h-16 w-16 rounded-full object-cover mr-4 drop-shadow-xl"
     />
     <div class="font-medium">
       {{ item.name }}
