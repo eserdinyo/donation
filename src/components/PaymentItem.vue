@@ -1,9 +1,9 @@
 <template>
-  <div class="shadow-payment-item mb-5 rounded-xl p-4 flex items-center">
+  <div class="payment-item">
     <img
       :src="item.image"
       :alt="item.name"
-      class="h-20 w-20 rounded-xl mr-4 object-cover"
+      class="h-20 w-20 rounded-xl mr-4 object-cover drop-shadow-xl"
     />
     <p class="mb-0 font-bold text-base">{{ item.name }}</p>
     <div class="ml-auto mr-12 space-x-2">
@@ -39,6 +39,11 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
+
+.payment-item {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  @apply mb-5 rounded-xl p-4 flex items-center;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
