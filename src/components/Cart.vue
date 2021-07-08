@@ -1,0 +1,79 @@
+<template>
+  <button
+    @click="store.commit('drawer/SET_CART', true)"
+    class="btn btn-success"
+  >
+    <IconHandHeart class="h-8 mr-3" />
+    <span class="font-semibold mt-1 normal-case">Bağış Sepetiniz</span>
+    <div class="bg-gray-800 text-white rounded h-6 w-6 ml-2">
+      {{ totalItems }}
+    </div>
+  </button>
+
+  <a-drawer
+    width="30%"
+    title="Bağış Sepetiniz"
+    placement="right"
+    :closable="false"
+    v-model:visible="store.state.drawer.cart"
+    :after-visible-change="afterVisibleChange"
+  >
+    <CartItem v-for="item in cartItems" :key="item.id" :item="item" />
+    <div v-if="totalItems === 0" class="text-center pt-10">
+      <IconEmptyCart class="h-20 text-[#009485] mb-3 mx-auto" />
+      <p class="font-medium text-base text-primary-black">
+        Sepetinize henüz bir bağış eklemediniz.
+      </p>
+    </div>
+    <div
+      class="
+        absolute
+        bottom-0
+        left-0
+        p-6
+        w-full
+        border-t border-gray-900
+        flex
+        items-center
+        justify-between
+      "
+    >
+      <div class="text-2xl font-medium text-primary-black">
+        Toplam: {{ cartTotal }}₺
+      </div>
+      <button
+        :disabled="totalItems === 0"
+        @click="
+          $router.push('/payment');
+          store.commit('drawer/SET_CART', false);
+        "
+        class="btn btn-accent btn-success"
+      >
+        <IconPayment class="h-4 mr-2" />
+        <span>Ödeme Yap</span>
+      </button>
+    </div>
+  </a-drawer>
+</template>
+
+<script setup>
+import { computed, ref } from "vue";
+import { useStore } from "vuex";
+
+import { IconHandHeart, IconPayment, IconEmptyCart } from "./icons";
+import CartItem from "./CartItem.vue";
+
+const store = useStore();
+
+const visible = ref(false);
+
+const afterVisibleChange = (bool) => {
+  // console.log(store.state.drawer.cart);
+};
+
+const totalItems = computed(() => store.getters["cart/totalItems"]);
+const cartItems = computed(() => store.state.cart.items);
+const cartTotal = computed(() => store.getters["cart/totalPrice"]);
+</script>
+
+<style lang="scss" scoped></style>
