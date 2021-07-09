@@ -5,40 +5,60 @@
     :footer="null"
     class="auth-modal"
   >
-    <form action="#">
-      <div class="form-control mb-4">
-        <label class="label">
-          <span class="label-text">E-mail</span>
-        </label>
-        <input type="email" placeholder="E-mail" class="input input-bordered" />
-      </div>
-      <div class="form-control mb-4">
-        <label class="label">
-          <span class="label-text">Şifre</span>
-        </label>
-        <input
-          type="password"
-          placeholder="Şifre"
-          class="input input-bordered"
-        />
-      </div>
-      <button class="btn btn-info my-4 w-full normal-case">Giriş Yap</button>
-    </form>
+    <Form @submit="onSubmit" :validation-schema="schema">
+      <TextInput name="email" type="email" label="Email" placeholder="Email" />
+      <TextInput
+        name="password"
+        type="password"
+        label="Password"
+        placeholder="Password"
+      />
+      <button
+        :disabled="false"
+        type="submit"
+        class="btn btn-info my-4 w-full normal-case"
+        :class="{ ' cursor-not-allowed': false }"
+      >
+        Giriş Yap
+      </button>
+    </Form>
     <div class="divider">veya</div>
     <button class="btn w-full my-4">
       <IconGoogle class="h-6 mr-2" />
       <span class="normal-case">Google İle Giriş Yap</span>
     </button>
-    <a class="link link-hover text-gray-400 block text-center my-2" href="#">Henüz hesabın yok mu? Kayıt Ol!</a>
-    <a class="link link-hover text-gray-400 block text-center my-2" href="#">Şifreni mi unuttun?</a>
+    <a class="link link-hover text-gray-400 block text-center my-2" href="#"
+      >Henüz hesabın yok mu? Kayıt Ol!</a
+    >
+    <a class="link link-hover text-gray-400 block text-center my-2" href="#"
+      >Şifreni mi unuttun?</a
+    >
   </a-modal>
 </template>
 
 <script setup>
+import * as Yup from "yup";
 import { useStore } from "vuex";
-import { IconGoogle } from "./icons";
+import { useField, Form } from "vee-validate";
+
+import { IconGoogle } from "@/components/icons";
+import TextInput from "@/components/TextInput.vue";
 
 const store = useStore();
+
+const schema = Yup.object({
+  email: Yup.string().required("Email is required").email("Email is invalid"),
+  password: Yup.string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
+});
+
+const { value: email, errorMessage: emailError } = useField("email");
+const { value: password, errorMessage: passwordError } = useField("password");
+
+const onSubmit = () => {
+  alert("...");
+};
 </script>
 
 <style lang="scss">
