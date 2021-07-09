@@ -1,6 +1,6 @@
 <template>
   <button
-    @click="store.commit('drawer/SET_CART', true)"
+    @click="store.commit('ui/SET_CART', true)"
     class="btn btn-success"
   >
     <IconHandHeart class="h-8 mr-3" />
@@ -15,7 +15,7 @@
     title="Bağış Sepetiniz"
     placement="right"
     :closable="false"
-    v-model:visible="store.state.drawer.cart"
+    v-model:visible="store.state.ui.cart"
     :after-visible-change="afterVisibleChange"
   >
     <CartItem v-for="item in cartItems" :key="item.id" :item="item" />
@@ -45,7 +45,7 @@
         :disabled="totalItems === 0"
         @click="
           $router.push('/payment');
-          store.commit('drawer/SET_CART', false);
+          store.commit('ui/SET_CART', false);
         "
         class="btn btn-accent btn-success"
       >
@@ -68,7 +68,7 @@ const store = useStore();
 const visible = ref(false);
 
 const afterVisibleChange = (bool) => {
-  // console.log(store.state.drawer.cart);
+  // console.log(store.state.ui.cart);
 };
 
 const totalItems = computed(() => store.getters["cart/totalItems"]);

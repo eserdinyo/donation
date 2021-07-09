@@ -66,6 +66,6 @@ const addToBasket = () => {
     icon: "success",
     confirmButtonText: "Tamam",
   });
-  store.commit("drawer/SET_CART", true);
+  store.commit("ui/SET_CART", true);
 };
 </script>
