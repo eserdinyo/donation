@@ -48,8 +48,6 @@ export default {
     },
   },
   setup(props) {
-    // we don't provide any rules here because we are using form-level validation
-    // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
     const {
       value: inputValue,
       errorMessage,

@@ -1,6 +1,6 @@
 const state = () => ({
   cart: false,
-  auth: true
+  auth: false
 });
 
 const mutations = {

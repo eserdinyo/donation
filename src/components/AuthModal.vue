@@ -56,8 +56,8 @@ const schema = Yup.object({
 const { value: email, errorMessage: emailError } = useField("email");
 const { value: password, errorMessage: passwordError } = useField("password");
 
-const onSubmit = () => {
-  alert("...");
+const onSubmit = (values) => {
+  alert(JSON.stringify(values, null, 2));
 };
 </script>
 
