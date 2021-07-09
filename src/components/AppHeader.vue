@@ -6,8 +6,14 @@
           <span class="text-2xl font-bold text-primary-black"> Donate </span>
         </router-link>
         <div class="navbar-end">
-          <button @click="store.commit('ui/SET_AUTH', true)" class="btn btn-outline mr-4">Giriş Yap</button>
+          <button
+            @click="store.commit('ui/SET_AUTH', true)"
+            class="btn btn-outline mr-4"
+          >
+            {{ $t("SIGN_IN") }}
+          </button>
           <Cart />
+          <LangSwitcher />
         </div>
       </div>
     </div>
@@ -16,12 +22,11 @@
 </template>
 
 <script setup>
-import Cart from "@/components/Cart.vue";
-import AuthModal from "@/components/AuthModal.vue";
 import { useStore } from "vuex";
-import { computed } from "vue";
+
+import Cart from "@/components/Cart.vue";
+import LangSwitcher from "@/components/LangSwitcher.vue";
+import AuthModal from "@/components/AuthModal.vue";
 
 const store = useStore();
 </script>
-
-<style lang="scss" scoped></style>

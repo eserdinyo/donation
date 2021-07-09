@@ -4,3 +4,4 @@ export { default as IconTrash } from "./IconTrash.vue";
 export { default as IconEmptyCart } from "./IconEmptyCart.vue";
 export { default as IconArrowLeft } from "./IconArrowLeft.vue";
 export { default as IconGoogle } from "./IconGoogle.vue";
+export { default as IconLanguage } from "./IconLanguage.vue";

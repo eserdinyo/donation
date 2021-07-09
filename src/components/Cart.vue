@@ -1,10 +1,9 @@
 <template>
-  <button
-    @click="store.commit('ui/SET_CART', true)"
-    class="btn btn-success"
-  >
+  <button @click="store.commit('ui/SET_CART', true)" class="btn btn-success">
     <IconHandHeart class="h-8 mr-3" />
-    <span class="font-semibold mt-1 normal-case">Bağış Sepetiniz</span>
+    <span class="font-semibold mt-1 normal-case">{{
+      $t("DONATION_BASKET")
+    }}</span>
     <div class="bg-gray-800 text-white rounded h-6 w-6 ml-2">
       {{ totalItems }}
     </div>
