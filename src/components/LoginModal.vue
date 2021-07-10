@@ -6,12 +6,19 @@
     class="auth-modal"
   >
     <Form @submit="onSubmit" :validation-schema="schema">
-      <TextInput name="email" type="email" label="Email" placeholder="Email" />
+      <TextInput
+        name="email"
+        type="email"
+        label="Email"
+        value="demo@gmail.com"
+        placeholder="Email"
+      />
       <TextInput
         name="password"
         type="password"
         label="Password"
         placeholder="Password"
+        value="demo@gmail.com"
       />
       <button
         :disabled="false"
@@ -60,7 +67,8 @@ const { value: email, errorMessage: emailError } = useField("email");
 const { value: password, errorMessage: passwordError } = useField("password");
 
 const onSubmit = (values) => {
-  alert(JSON.stringify(values, null, 2));
+  store.commit("auth/SET_LOGGED_IN", true);
+  store.commit("ui/SET_LOGIN", false);
 };
 </script>
 

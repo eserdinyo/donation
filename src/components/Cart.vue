@@ -1,7 +1,7 @@
 <template>
   <button @click="store.commit('ui/SET_CART', true)" class="btn btn-success">
-    <IconHandHeart class="h-8 mr-3" />
-    <span class="font-semibold mt-1 normal-case">{{
+    <IconHandHeart class="h-8 mr-1 md:mr-3" />
+    <span class="font-semibold mt-1 normal-case hidden md:block">{{
       $t("DONATION_BASKET")
     }}</span>
     <div class="bg-gray-800 text-white rounded h-6 w-6 ml-2">
@@ -10,10 +10,10 @@
   </button>
 
   <a-drawer
-    width="30%"
+    :width="mdAndSmaller ? '100%' : '480px'"
     title="Bağış Sepetiniz"
     placement="right"
-    :closable="false"
+    :closable="mdAndSmaller"
     v-model:visible="store.state.ui.cart"
     :after-visible-change="afterVisibleChange"
   >
@@ -58,12 +58,12 @@
 <script setup>
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
-
-import CartItem from "./CartItem.vue";
+import { useBreakpoints, breakpointsTailwind } from "@vueuse/core";
 
 const store = useStore();
 
-const visible = ref(false);
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const mdAndSmaller = breakpoints.smaller("md");
 
 const afterVisibleChange = (bool) => {
   // console.log(store.state.ui.cart);

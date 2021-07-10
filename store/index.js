@@ -1,11 +1,13 @@
 import { createStore } from "vuex";
-import cart from "./cart";
 import ui from "./ui";
+import cart from "./cart";
+import auth from "./auth";
 
 const store = createStore({
   modules: {
-    cart,
     ui,
+    auth,
+    cart,
   },
 });
 

@@ -6,9 +6,11 @@
           <span class="text-2xl font-bold text-primary-black"> Donate </span>
         </router-link>
         <div class="navbar-end">
+          <ProfilMenu v-if="store.state.auth.loggedIn" />
           <button
+            v-else
             @click="store.commit('ui/SET_LOGIN', true)"
-            class="btn btn-outline mr-4"
+            class="btn btn-outline mr-4 normal-case"
           >
             {{ $t("SIGN_IN") }}
           </button>
