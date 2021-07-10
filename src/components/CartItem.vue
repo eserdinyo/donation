@@ -27,8 +27,6 @@
 </template>
 
 <script setup>
-import { IconTrash } from "./icons";
-
 defineProps({
   item: {
     type: Object,

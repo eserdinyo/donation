@@ -11,6 +11,5 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import { IconLanguage } from "@/components/icons";
 const { locale } = useI18n();
 </script>

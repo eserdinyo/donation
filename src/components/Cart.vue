@@ -59,7 +59,6 @@
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 
-import { IconHandHeart, IconPayment, IconEmptyCart } from "./icons";
 import CartItem from "./CartItem.vue";
 
 const store = useStore();

@@ -101,9 +101,6 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 
-import { IconArrowLeft, IconPayment } from "@/components/icons";
-import PaymentItem from "@/components/PaymentItem.vue";
-
 const store = useStore();
 
 const cartItems = computed(() => store.state.cart.items);

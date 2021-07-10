@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import path from "path";
 import vue from "@vitejs/plugin-vue";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
+import ViteComponents from "vite-plugin-components";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
       // compositionOnly: false,
       include: path.resolve(__dirname, "./src/locales/**"),
     }),
+    ViteComponents(),
   ],
   resolve: {
     alias: {
