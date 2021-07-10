@@ -15,7 +15,7 @@
           Sepetinizde toplam {{ totalItems }} adet bağış var!
         </h3>
       </div>
-      <PaymentItem v-for="item in cartItems" :key="item.id" :item="item" />
+      <PaymentItem v-for="item in cartItems" :key="item.uid" :item="item" />
     </div>
     <div class="rounded-2xl bg-[#575CBA] p-8">
       <div class="text-gray-200 font-bold mb-8 text-2xl">Ödeme Bilgileri</div>

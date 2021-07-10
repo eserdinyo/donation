@@ -17,7 +17,7 @@
     v-model:visible="store.state.ui.cart"
     :after-visible-change="afterVisibleChange"
   >
-    <CartItem v-for="item in cartItems" :key="item.id" :item="item" />
+    <CartItem v-for="item in cartItems" :key="item.uid" :item="item" />
     <div v-if="totalItems === 0" class="text-center pt-10">
       <IconEmptyCart class="h-20 text-[#009485] mb-3 mx-auto" />
       <p class="font-medium text-base text-primary-black">

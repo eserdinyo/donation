@@ -7,7 +7,7 @@
         </router-link>
         <div class="navbar-end">
           <button
-            @click="store.commit('ui/SET_AUTH', true)"
+            @click="store.commit('ui/SET_LOGIN', true)"
             class="btn btn-outline mr-4"
           >
             {{ $t("SIGN_IN") }}
@@ -17,16 +17,13 @@
         </div>
       </div>
     </div>
-    <AuthModal />
+    <LoginModal />
+    <RegisterModal />
   </div>
 </template>
 
 <script setup>
 import { useStore } from "vuex";
-
-import Cart from "@/components/Cart.vue";
-import LangSwitcher from "@/components/LangSwitcher.vue";
-import AuthModal from "@/components/AuthModal.vue";
 
 const store = useStore();
 </script>

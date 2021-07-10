@@ -55,8 +55,10 @@ const totalPrice = computed(() => {
 });
 
 const addToBasket = () => {
+  const uid = Math.random();
   store.commit("cart/pushToCart", {
-    product: props.product,
+    ...props.product,
+    uid,
     quantity: quantity.value,
   });
 

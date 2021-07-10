@@ -18,7 +18,7 @@
       </div>
     </div>
     <div
-      @click="$store.commit('cart/deleteFromCart', item.id)"
+      @click="$store.commit('cart/deleteFromCart', item.uid)"
       class="p-4 cursor-pointer"
     >
       <IconTrash class="h-5 text-gray-300 transition hover:text-red-600" />
