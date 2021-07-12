@@ -1,6 +1,8 @@
 import Home from "@/pages/Home.vue";
 import NotFound from "@/pages/NotFound.vue";
 
+import Donations from  "@/pages/me/Donations.vue"
+
 export default [
   { path: "/", component: Home },
   {
@@ -10,7 +12,7 @@ export default [
   {
     path: "/bagislarim",
     name: "donations",
-    component: import("@/pages/me/Donations.vue"),
+    component: Donations,
     meta: {
       layout: "auth",
     },
