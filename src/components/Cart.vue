@@ -65,8 +65,10 @@ const store = useStore();
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const mdAndSmaller = breakpoints.smaller("md");
 
-const afterVisibleChange = (bool) => {
-  // console.log(store.state.ui.cart);
+const afterVisibleChange = (isOpen) => {
+  if(!isOpen) {
+    store.commit('ui/SET_CART', false)
+  } 
 };
 
 const totalItems = computed(() => store.getters["cart/totalItems"]);
