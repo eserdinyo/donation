@@ -2,11 +2,13 @@
   <div class="dropdown mr-4 dropdown-end dropdown-hover">
     <div tabindex="0" class="btn btn-outline w-auto flex-nowrap">
       <IconUser class="md:mr-2 h-5 w-5 min-w-[20px]" />
-      <span class="normal-case hidden md:block whitespace-nowrap">John Doe</span>
+      <span class="normal-case hidden md:block whitespace-nowrap"
+        >John Doe</span
+      >
     </div>
     <ul class="shadow menu dropdown-content bg-base-100 rounded-box w-52">
-      <div
-        @click="store.commit('auth/LOGOUT')"
+      <router-link
+        to="/bagislarim"
         class="
           group
           flex
@@ -15,12 +17,13 @@
           py-3
           cursor-pointer
           transition
+          text-primary-black
           hover:text-green-700 hover:bg-gray-100
         "
       >
         <IconDonation class="w-4 mr-2" />
         <span class="font-medium">Donations</span>
-      </div>
+      </router-link>
       <div
         @click="store.commit('auth/LOGOUT')"
         class="

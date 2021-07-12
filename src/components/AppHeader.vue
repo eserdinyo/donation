@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-10 py-2 border-b shadow-sm">
+  <div class="py-2 border-b shadow-sm">
     <div class="container mx-auto">
       <div class="navbar text-gray-800">
         <router-link to="/" class="px-2 mx-2 navbar-start">

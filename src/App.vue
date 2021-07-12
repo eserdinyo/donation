@@ -1,12 +1,21 @@
 <template>
-  <AppHeader />
-  <main class="container mx-auto px-4">
-    <router-view />
-  </main>
+  <component :is="layout"></component>
 </template>
 
-<script setup>
-import AppHeader from "@/components/AppHeader.vue";
+<script>
+import DefaulyLayout from "@/layouts/default.vue";
+import AuthLayout from "@/layouts/auth.vue";
+export default {
+  computed: {
+    layout() {
+      return this.$route.meta.layout || "default";
+    },
+  },
+  components: {
+    default: DefaulyLayout,
+    auth: AuthLayout,
+  },
+};
 </script>
 
 <style>
