@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-10">
     <div class="donation-header">
       <div class="container mx-auto px-4">
         <span class="font-medium text-xl">Merhaba</span> <br />
@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="container mx-auto px-4 -mt-10">
-      <div class="flex space-x-10">
+      <div class="flex items-start space-x-10">
         <div class="rounded-md p-6 w-1/4 bg-white custom-shadow">
           <router-link
             to="/"
@@ -22,61 +22,7 @@
             Bağışlarım
           </div>
           <div class="px-8">
-            <div
-              class="
-                cursor-pointer
-                border border-gray-200
-                rounded-lg
-                p-4
-                mb-4
-                transition
-                flex
-                items-center
-                hover:custom-shadow
-              "
-            >
-              <div class="avatar-group -space-x-6">
-                <div class="avatar border-gray-200">
-                  <div class="w-12 h-12">
-                    <img
-                      src="http://daisyui.com/tailwind-css-component-profile-1@56w.png"
-                    />
-                  </div>
-                </div>
-                <div class="avatar border-gray-200">
-                  <div class="w-12 h-12">
-                    <img
-                      src="http://daisyui.com/tailwind-css-component-profile-2@56w.png"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="ml-8">
-                <div class="text-gray-400 text-sm font-medium">
-                  Makbuz No:
-                  <span class="text-primary-black text-base font-bold"
-                    >34324</span
-                  >
-                </div>
-                <div>1 Temmuz Per, 15:30</div>
-              </div>
-              <div class="text-green-700 text-2xl font-bold ml-auto">
-                25,24₺
-              </div>
-              <button
-                class="
-                  bg-gray-200
-                  rounded-full
-                  h-10
-                  w-10
-                  grid
-                  place-items-center
-                  ml-4
-                "
-              >
-                <IconArrowDown class="h-5" />
-              </button>
-            </div>
+            <MyDonationItem />
           </div>
         </div>
       </div>
