@@ -18,7 +18,25 @@
       <PaymentItem v-for="item in cartItems" :key="item.uid" :item="item" />
     </div>
     <div class="rounded-2xl bg-[#575CBA] p-8">
-      <div class="text-gray-200 font-bold mb-8 text-2xl">Ödeme Bilgileri</div>
+      <div
+        class="
+          text-gray-200
+          font-bold
+          mb-8
+          text-2xl
+          flex
+          items-center
+          justify-between
+        "
+      >
+        <span>Ödeme Bilgileri</span>
+        <button
+          class="btn btn-sm btn-ghost text-white text-sm normal-case"
+          @click="fillCard"
+        >
+          {{ $t("FILL_THE_CARD") }}
+        </button>
+      </div>
       <form action="#">
         <div class="form-control mb-4">
           <label class="label">
@@ -28,6 +46,8 @@
           </label>
           <input
             type="text"
+            v-model="ccname"
+            placeholder="Kart sahibinin adı ve soyadı"
             class="
               input input-ghost
               font-semibold
@@ -44,6 +64,9 @@
           </label>
           <input
             type="text"
+            v-model="ccnumber"
+            v-maska="'#### #### #### ####'"
+            placeholder="&#9679;&#9679;&#9679;&#9679; &#9679;&#9679;&#9679;&#9679; &#9679;&#9679;&#9679;&#9679; &#9679;&#9679;&#9679;&#9679;"
             class="
               input input-ghost
               font-semibold
@@ -61,6 +84,9 @@
             </label>
             <input
               type="text"
+              placeholder="Ay / Yıl"
+              v-maska="'##/##'"
+              v-model="ccdate"
               class="
                 input input-ghost
                 font-semibold
@@ -71,10 +97,15 @@
           </div>
           <div class="form-control flex-1">
             <label class="label">
-              <span class="label-text text-gray-200 font-semibold">CVV</span>
+              <span class="label-text text-gray-200 font-semibold"
+                >Güvenlik kodu</span
+              >
             </label>
             <input
               type="text"
+              placeholder="CVC/CVV"
+              v-maska="['###', '####']"
+              v-model="cvv"
               class="
                 input input-ghost
                 font-semibold
@@ -86,9 +117,10 @@
         </div>
       </form>
       <button
-        :disabled="totalItems === 0"
+        :disabled="isPaying"
         @click="pay"
         class="btn btn-success mt-12 w-full"
+        :class="[{ 'loading text-white': isPaying }]"
       >
         <span class="normal-case">Ödeme Yap</span>
         <IconArrowLeft class="ml-2 w-4 transform rotate-180" />
@@ -98,16 +130,34 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
+
+const ccname = ref("");
+const ccnumber = ref("");
+const ccdate = ref("");
+const cvv = ref("");
+
+const isPaying = ref(false);
 
 const cartItems = computed(() => store.state.cart.items);
 const totalItems = computed(() => store.getters["cart/totalItems"]);
 
 const pay = () => {
-  alert("Payment completed");
+  isPaying.value = true;
+  setTimeout(() => {
+    isPaying.value = false;
+    alert("Payment completed");
+  }, 1000);
+};
+
+const fillCard = () => {
+  ccname.value = "John Doe";
+  ccnumber.value = "4987490000000002";
+  ccdate.value = "12/24";
+  cvv.value = "232";
 };
 </script>
 

@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { createI18n } from "vue-i18n";
 import { Drawer, Modal } from "ant-design-vue";
 import { createRouter, createWebHistory } from "vue-router";
+import Maska from 'maska'
 
 import "./tailwind.css";
 import App from "./App.vue";
@@ -26,6 +27,7 @@ const router = createRouter({
 
 const app = createApp(App);
 
+app.use(Maska);
 app.use(i18n);
 app.use(Drawer);
 app.use(Modal);

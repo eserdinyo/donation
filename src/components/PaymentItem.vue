@@ -3,7 +3,7 @@
     <img
       :src="item.image"
       :alt="item.name"
-      class="h-20 w-20 rounded-xl mr-4 object-cover drop-shadow-xl"
+      class="h-20 w-20 mr-4 object-cover drop-shadow-xl mask mask-squircle"
     />
     <p class="mb-0 font-bold text-base">{{ item.name }}</p>
     <div class="ml-auto mr-8 space-x-2">

@@ -31,7 +31,7 @@
         left-0
         p-6
         w-full
-        border-t border-gray-900
+        border-t border-gray-200
         flex
         items-center
         justify-between

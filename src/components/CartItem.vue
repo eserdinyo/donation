@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="flex items-center border border-gray-900 p-4 pr-0 rounded-md mb-4"
-  >
+  <div class="payment-item">
     <img
       :src="item.image"
       :alt="item.name"
-      class="h-16 w-16 rounded-full object-cover mr-4 drop-shadow-xl"
+      class="h-16 w-16 object-cover mr-4 drop-shadow-xl mask mask-squircle"
     />
     <div class="font-medium">
       {{ item.name }}
@@ -35,4 +33,9 @@ defineProps({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.payment-item {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  @apply mb-5 rounded-xl p-4 flex items-center;
+}
+</style>
