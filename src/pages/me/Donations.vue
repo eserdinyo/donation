@@ -10,12 +10,32 @@
       <div class="flex items-start space-x-10">
         <div class="rounded-md p-6 w-1/4 bg-white custom-shadow">
           <router-link
-            to="/"
-            class="font-medium btn btn-outline hover:text-white w-full"
+            to="/bagislarim"
+            class="font-medium btn btn-outline hover:text-white w-full mb-4 justify-start px-10"
+            :class="{
+              'border-green-700 text-green-700': route.path === '/bagislarim',
+            }"
           >
             <IconDonation class="h-4 mr-2" />
             <span>Bağışlarım</span>
           </router-link>
+          <router-link
+            to="/ayarlarim"
+            class="font-medium btn btn-outline hover:text-white w-full mb-4 justify-start px-10"
+            :class="{
+              'border-green-700 text-green-700': route.path === '/ayarlarim',
+            }"
+          >
+            <IconSettings class="h-4 mr-2" />
+            <span>Ayarlarım</span>
+          </router-link>
+          <button
+            @click="store.commit('auth/LOGOUT')"
+            class="font-medium btn btn-outline hover:text-white w-full text-left justify-start px-10"
+          >
+            <IconLogout class="h-4 mr-2" />
+            <span>Çıkış</span>
+          </button>
         </div>
         <div class="bg-white rounded-md w-full custom-shadow">
           <div class="font-semibold text-2xl border-b border-gray-100 p-8 mb-8">
@@ -30,7 +50,13 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
+
+const store = useStore();
+const route = useRoute();
+</script>
 
 <style lang="scss" scoped>
 .donation-header {

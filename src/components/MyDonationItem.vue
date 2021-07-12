@@ -9,6 +9,7 @@
       transition
       hover:custom-shadow
     "
+    :class="{ 'border-green-700': isOpen }"
   >
     <div class="flex items-center" @click="isOpen = !isOpen">
       <div class="avatar-group -space-x-6">
@@ -41,7 +42,10 @@
         <IconArrowDown class="h-5" />
       </button>
     </div>
-    <div class="transform scale-y-0 overflow-hidden transition h-0" :class="{ 'scale-y-100 h-full': isOpen }">
+    <div
+      class="transform scale-y-0 overflow-hidden transition h-0"
+      :class="{ 'scale-y-100 h-full': isOpen }"
+    >
       <div
         v-for="n in 3"
         :key="n"
