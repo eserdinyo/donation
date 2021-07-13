@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
+import notify from "./plugins/notify";
 
 import ui from "./ui";
 import cart from "./cart";
@@ -11,7 +12,7 @@ const store = createStore({
     auth,
     cart,
   },
-  plugins: [createPersistedState()],
+  plugins: [createPersistedState(), notify],
 });
 
 export default store;
