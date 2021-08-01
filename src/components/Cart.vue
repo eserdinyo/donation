@@ -55,7 +55,7 @@
   </a-drawer>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import { useBreakpoints, breakpointsTailwind } from "@vueuse/core";
