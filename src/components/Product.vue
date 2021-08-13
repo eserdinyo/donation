@@ -1,3 +1,45 @@
+<script lang="ts" setup>
+import { defineProps, onMounted, ref, computed } from "vue";
+import Swal from "sweetalert2";
+import { useStore } from "vuex";
+
+const props = defineProps({
+  product: {
+    type: Object,
+    required: true,
+  },
+});
+
+const store = useStore();
+
+const quantity = ref<number>(1);
+
+onMounted(() => {
+  // console.log(props.product.price);
+});
+
+const totalPrice = computed(() => {
+  return `${props.product.price * quantity.value} ₺`;
+});
+
+const addToBasket = () => {
+  const uid = Math.random();
+  store.commit("cart/pushToCart", {
+    ...props.product,
+    uid,
+    quantity: quantity.value,
+  });
+
+  Swal.fire({
+    title: "Sepete Eklendi!",
+    text: "Bağışınız sepetinize eklendi.",
+    icon: "success",
+    confirmButtonText: "Tamam",
+  });
+  store.commit("ui/SET_CART", true);
+};
+</script>
+
 <template>
   <div class="card text-center shadow border border-black">
     <figure class="border-b border-black">
@@ -29,45 +71,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { defineProps, onMounted, ref, computed } from "vue";
-import Swal from "sweetalert2";
-import { useStore } from "vuex";
-
-const props = defineProps({
-  product: {
-    type: Object,
-    required: true,
-  },
-});
-
-const store = useStore();
-
-const quantity = ref(1);
-
-onMounted(() => {
-  // console.log(props.product.price);
-});
-
-const totalPrice = computed(() => {
-  return `${props.product.price * quantity.value} ₺`;
-});
-
-const addToBasket = () => {
-  const uid = Math.random();
-  store.commit("cart/pushToCart", {
-    ...props.product,
-    uid,
-    quantity: quantity.value,
-  });
-
-  Swal.fire({
-    title: "Sepete Eklendi!",
-    text: "Bağışınız sepetinize eklendi.",
-    icon: "success",
-    confirmButtonText: "Tamam",
-  });
-  store.commit("ui/SET_CART", true);
-};
-</script>
