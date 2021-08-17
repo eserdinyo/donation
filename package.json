@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "cypress": "cypress open",
+    "test": "cypress run"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.18.0",
@@ -22,10 +24,13 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@cypress/vue": "^3.0.3",
+    "@cypress/webpack-dev-server": "^1.4.0",
     "@intlify/vite-plugin-vue-i18n": "^2.3.1",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.2.6",
+    "cypress": "^8.2.0",
     "postcss": "^8.3.5",
     "sass": "^1.35.2",
     "tailwindcss": "^2.2.4",

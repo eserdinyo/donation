@@ -63,9 +63,9 @@ const addToBasket = () => {
       <div class="justify-center card-actions">
         <button
           @click="addToBasket"
-          class="btn btn-outline btn-accent btn-primary"
+          class="donate-btn btn btn-outline btn-accent btn-primary"
         >
-          Bağış Yap
+          {{ $t('DONATE')}}
         </button>
       </div>
     </div>
