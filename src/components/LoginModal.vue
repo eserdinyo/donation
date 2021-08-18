@@ -10,19 +10,22 @@
         name="email"
         type="email"
         label="Email"
-        value="demo@gmail.com"
+        value=""
         placeholder="Email"
+        data-test="email-input"
       />
       <TextInput
         name="password"
         type="password"
         label="Password"
         placeholder="Password"
-        value="demo@gmail.com"
+        data-test="password-input"
+        value=""
       />
       <button
         :disabled="false"
         type="submit"
+        data-test="login-button"
         class="btn btn-info my-4 w-full normal-case"
         :class="{ ' cursor-not-allowed': false }"
       >

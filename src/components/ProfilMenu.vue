@@ -2,7 +2,9 @@
   <div class="dropdown mr-4 dropdown-end dropdown-hover">
     <div tabindex="0" class="btn btn-outline w-auto flex-nowrap">
       <IconUser class="md:mr-2 h-5 w-5 min-w-[20px]" />
-      <span class="normal-case hidden md:block whitespace-nowrap"
+      <span
+        data-test="fullname"
+        class="normal-case hidden md:block whitespace-nowrap"
         >John Doe</span
       >
     </div>

@@ -11,6 +11,7 @@
             v-else
             @click="store.commit('ui/SET_LOGIN', true)"
             class="btn btn-outline mr-4 normal-case"
+            data-test="signin-button"
           >
             {{ $t("SIGN_IN") }}
           </button>
