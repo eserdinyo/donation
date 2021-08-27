@@ -22,11 +22,22 @@
     </div>
     <LoginModal />
     <RegisterModal />
+
+    <h1 v-if="loading">Loading....</h1>
+
+    <p v-else>{{ payload }}</p>
+    
   </div>
 </template>
 
 <script setup>
 import { useStore } from "vuex";
+import { useRequest } from "@/composable/useRequest";
 
 const store = useStore();
+
+const { loading, payload, makeRequest } = useRequest();
+
+makeRequest('https://jsonplaceholder.typicode.com/todos/1')
+
 </script>
