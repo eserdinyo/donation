@@ -1,28 +1,34 @@
 <script lang="ts" setup>
-import { defineProps, onMounted, ref, computed } from "vue";
+import { onMounted, ref, computed, PropType } from "vue";
 import Swal from "sweetalert2";
 import { useStore } from "vuex";
+import type { Product } from '@/types';
+import type ProductType from '@/types/ProductType'
 
-const props = defineProps({
-  product: {
-    type: Object,
-    required: true,
-  },
-});
+interface Props {
+   product: ProductType;
+}
+
+const props = defineProps<Props>();
+
+/* const props = withDefaults(defineProps<Props>(), {
+   textColor: 'primary',
+   bordered: false
+}); */
 
 const store = useStore();
 
-const quantity = ref<number>(1);
+const quantity = ref(1);
 
 onMounted(() => {
   // console.log(props.product.price);
 });
 
-const totalPrice = computed(() => {
+const totalPrice = computed((): string => {
   return `${props.product.price * quantity.value} ₺`;
 });
 
-const addToBasket = () => {
+const addToBasket = (): void => {
   const uid = Math.random();
   store.commit("cart/pushToCart", {
     ...props.product,
@@ -65,7 +71,7 @@ const addToBasket = () => {
           @click="addToBasket"
           class="donate-btn btn btn-outline btn-accent btn-primary"
         >
-          {{ $t('DONATE')}}
+          {{ $t("DONATE") }}
         </button>
       </div>
     </div>

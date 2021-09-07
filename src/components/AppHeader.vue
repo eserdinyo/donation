@@ -30,9 +30,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { useStore } from "vuex";
-import { useRequest } from "@/composable/useRequest";
+import { useRequest } from "../composable/useRequest";
 
 const store = useStore();
 
