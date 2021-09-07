@@ -6,7 +6,7 @@ import Maska from 'maska'
 
 import "./tailwind.css";
 import App from "./App.vue";
-import store from "../store";
+import store from "@/store";
 import routes from "@/routes.js";
 
 import "sweetalert2/src/sweetalert2.scss";

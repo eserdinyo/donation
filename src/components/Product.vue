@@ -2,11 +2,10 @@
 import { onMounted, ref, computed, PropType } from "vue";
 import Swal from "sweetalert2";
 import { useStore } from "vuex";
-import type { Product } from '@/types';
-import type ProductType from '@/types/ProductType'
+import type ProductType from "@/types/ProductType";
 
 interface Props {
-   product: ProductType;
+  product: ProductType;
 }
 
 const props = defineProps<Props>();

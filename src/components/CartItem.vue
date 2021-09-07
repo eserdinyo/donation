@@ -16,7 +16,7 @@
       </div>
     </div>
     <div
-      @click="$store.commit('cart/deleteFromCart', item.uid)"
+      @click="store.commit('cart/deleteFromCart', item.uid)"
       class="p-4 cursor-pointer"
     >
       <IconTrash class="h-5 text-gray-300 transition hover:text-red-600" />
@@ -24,13 +24,19 @@
   </div>
 </template>
 
-<script setup>
-defineProps({
-  item: {
-    type: Object,
-    required: true,
-  },
-});
+<script setup lang="ts">
+import type CartItem from "@/types/CartItemType";
+
+import { useStore } from "vuex";
+
+const store = useStore()
+
+
+interface Props {
+  item: CartItem;
+}
+
+const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
